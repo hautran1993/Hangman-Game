@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Hangman game</title>
-	<script src="game.js"></script>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
-<body>
+  <head>
+  <title>pratice bootstrap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
 
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+<body>  
+  <nav class="navbar navbar-inverse navbar-fixed-top navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <nav class="navbar-brand navbar-collapse dropdown"></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONNECT WITH ME<span class="caret"></span></a>
+          
+          <ul class="dropdown-menu">
+           <li><a href="https://github.com/hautran1993"><br><img border="0" alt="Git Hub" src="assets/images/github.png" img border="0" width="40px" height="40px">Github</a></li>
+
+           <li><a href="https://www.linkedin.com/feed/?trk="><br><img border="0" alt="Linked In" src="assets/images/linkedin.png" img border="0" width="40px" height="40px">Linkedin</a></li>
+
+          <li><a href="https://stackoverflow.com/nocaptcha?s=191c69cf-b6ed-4224-9a79-869dc1fccac7"><br><img border="0" alt="Stack Overflow" src="assets/images/overflow.png" img border="0" width="40px" height="40px">Stacked Overflow</a></li>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#4">HOME</a></li>
+        <li><a href="#1">HANGMAN</a></li>
+        <li><a href="#2">OTHER GAMES</a></li>
+        <li><a href="#3">CONTACT ME</a></li>
+       
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+   </div><!-- /.container-fluid -->
+  </nav>
+  <br>
+  <br>
+
+      <img class="Picture-item" id="4" src="Assets/images/background.png">
+<section id="1" style="min-height: 840px;background:lightgrey">
+<!-- //main hang man game -->	
+  <div class="container" id="user">
+    <br><br>
+    <h2>hangman GAME</h2>
+  <div id="user-text">checking</div>
+  </div> 
+
+  <div class="container">
+  <div class="words-remaining">Guesses-remaining</div>
+  <div class="RightGuess">right Guess</div>
+  </div>   
+</section>      
+
+  
+
+<footer class="text-center panel foot" style="background: lightgrey">
+    <p class="copy-text">&copy; Copyright 2017 Hau Tran</p>
+</footer>
+
+
+
+
+<script src="assets/javascript/game.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>$(document).ready(function(){
+  $('a[href*=#]').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+    && location.hostname == this.hostname) {
+      var $target = $(this.hash);
+      $target = $target.length && $target
+      || $('[name=' + this.hash.slice(1) +']');
+      if ($target.length) {
+        var targetOffset = $target.offset().top;
+        $('html,body')
+        .animate({scrollTop: targetOffset}, 1000);
+       return false;
+      }
+    }
+  });
+});
+</script>
 </body>
+
 </html>
