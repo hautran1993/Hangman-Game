@@ -1,64 +1,87 @@
 //word bank
-var wordsToGuess = ["startrek", "battlestar galactica","doctor who"
-                    ,"zygirion simulation","gazorpazorpfield", "pickle rick"]
+var wordsToGuess = ["startrek", "battlestar", "galatica"
+                    ,"zygirion","gazorpazorpfield", "picklerick","lubbadubdub","portals","interdemension"]
 
 //randomWord allows use for randomizing word
-var randomWord =  wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
+var randomWord =  wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)].toLowerCase();
 console.log(randomWord);
-
-var misses = []
-var correct= []
-var wins = 0;
-var loses = 0;
+var guessesLeft = 10
+var playerGuesses = []
 var answerArray =[]
+var underScore=[]
+var wins = 0;
 var usersInput;
-
-//looping random word and push "_"
-for (var i = 0; i < randomWord.length; i++) { 
-    answerArray.push("_");
-}
-//game starts after key is pressed
 var userText = document.getElementById("user-text");
-userText.textContent = answerArray;
+var game = false;
 
+//game start
+function generateUnderscore (){
+    for (var i = 0; i < randomWord.length; i++) { 
+    answerArray.push('_');
+        if (randomWord[i]===(" ")){
+            answerArray[i]=" "
+        }
+    } 
+    userText.textContent = answerArray.join(" ");
+}
+generateUnderscore()
+
+function generateGame (){ 
+    for(var i=0; i < randomWord.length; i++) {
+        if( guessesLeft[i]=== playerGuesses){
+        game=false;
+        console.log("you lose")
+        }    
+    } 
+}
+generateGame()
 //allow users to press keys
 document.onkeyup = function(event) {
- userText.textContent=event.key
+
  usersInput = event.key;
+ //all keys to lower case
  usersInput = usersInput.toLowerCase()
 
 
-      if (misses.indexOf(usersInput) === -1 ) {
-        misses.push(usersInput);
-        console.log("whats this")
+    //gets users guess
+      if (playerGuesses.indexOf(usersInput) === -1 ) {
+        console.log("will not log in answers twice");
             //if the output is wrong while looking through the random array
             //allow the loop to run through nd collect all of the chracters in the word bank
         if( randomWord.indexOf(usersInput) > -1) {
-        	console.log("this ran");
-            console.log("good job");
+            console.log("goodjob right answer")
             //loop through the random word length
         	for(var i=0 ; i < randomWord.length; i++) {
                 // if users input is equall to randomword length
 			    if( usersInput === randomWord[i]) {
-			    	console.log("running check loop");
-                    console.log("good job");
                     //then input users answers in strings
 			        answerArray[i] = usersInput;
+                    console.log("saves a string that gets closer to finishing(almost-1)");
                 }
                 //log in answer array to show it in console
-			    console.log(answerArray);
+			    userText.textContent= answerArray.join(" ");
 			    
 			}
         //for unvalid answers or repeating strings    
         } else {
-        	console.log("sorry you guessed wrong");
+            playerGuesses.push(usersInput);
+            document.getElementById("alreadyGuessed").textContent = playerGuesses.join(" ")
+
         }
         
     //tell them to guess again  
-    } else { 
-        misses.push(usersInput);
-        //need to set this to 10 some how and end game
-        console.log("wrong guess or repeatin guess");
+    }
+
+    //player wins if word is guessed correctly/why is it not working
+    if(answerArray.join("") === randomWord){
+          wins += 1;
+          document.getElementById("wins").textContent = "wins:" + wins;
+          console.log("goodjob you win")
+        }else{
+          lose+=1;
+          document.getElementById("loses").textContent = "wins:" + lose;
+
     }
 
 };
+

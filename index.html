@@ -34,8 +34,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#4">HOME</a></li>
         <li><a href="#1">HANGMAN</a></li>
-        <li><a href="#2">OTHER GAMES</a></li>
-        <li><a href="#3">CONTACT ME</a></li>
+  
        
           </ul>
         </li>
@@ -46,19 +45,38 @@
   <br>
   <br>
 
-      <img class="Picture-item" id="4" src="Assets/images/background.png">
+      <img class="Picture-item" id="4" src="Assets/images/background.png" width="1440px">
 <section id="1" style="min-height: 840px;background:lightgrey">
 <!-- //main hang man game -->	
-  <div class="container" id="user">
-    <br><br>
-    <h2>hangman GAME</h2>
-  <div id="user-text">checking</div>
-  </div> 
+    <div class="container panel">
+    	<div class="row">
+    		<h2 class="text-center" id="wordSize">HANGMAN GAME</h2>
+		</div>
+	</div>
+    <br>
+    <br>
+		  <div class="container panel">
+		  		<h2 class="text-center">Current Word</h2> 
+		  		<div class="row">  
+		  			<div id="user-text" class="text-center">checking</div>
+				</div>
+		  </div> 
+  	<br>
+  	<br>
 
-  <div class="container">
-  <div class="words-remaining">Guesses-remaining</div>
-  <div class="RightGuess">right Guess</div>
-  </div>   
+		   <div class="container panel">
+			  	<div class="row">	
+			  		<div class="playerGuesses"></div>
+			  		<h2 class="text-center">Words Already Used</h2>
+			  		<div id= "alreadyGuessed" class="text-center"></div>
+			  	</div>
+			</div> 	
+			<div class="container panel">
+			  	<div class="row">		
+			 		<div id="wins" class="text-center">wins:0
+			  		<div class="losses" class="text-center">loses:0
+			  	</div>
+		  </div>   
 </section>      
 
   
@@ -73,23 +91,6 @@
 <script src="assets/javascript/game.js"></script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>$(document).ready(function(){
-  $('a[href*=#]').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-    && location.hostname == this.hostname) {
-      var $target = $(this.hash);
-      $target = $target.length && $target
-      || $('[name=' + this.hash.slice(1) +']');
-      if ($target.length) {
-        var targetOffset = $target.offset().top;
-        $('html,body')
-        .animate({scrollTop: targetOffset}, 1000);
-       return false;
-      }
-    }
-  });
-});
-</script>
 </body>
 
 </html>
