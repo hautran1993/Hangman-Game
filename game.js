@@ -28,8 +28,9 @@ generateUnderscore()
 
 function generateGame (){ 
     for(var i=0; i < randomWord.length; i++) {
-        if( guessesLeft[i]=== playerGuesses){
         game=false;
+        if( guessesLeft[i]=== playerGuesses){
+        game=true;
         console.log("you lose")
         }    
     } 
@@ -71,17 +72,19 @@ document.onkeyup = function(event) {
         
     //tell them to guess again  
     }
+    var winCount = 0;
+      for(k=0;k<displayWord.length;k++){
+        if(displayWord[k]===ranWord.charAt(k)){
+          winCount += 1;
+        }
+      }
 
     //player wins if word is guessed correctly/why is it not working
     if(answerArray.join("") === randomWord){
           wins += 1;
           document.getElementById("wins").textContent = "wins:" + wins;
           console.log("goodjob you win")
-        }else{
-          lose+=1;
-          document.getElementById("loses").textContent = "wins:" + lose;
-
-    }
+        }
 
 };
 
